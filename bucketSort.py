@@ -28,24 +28,23 @@
     # wydrukować dla każdego dnia p uczniów
 
 
-def bucketSort(tab):
+def bucketSort(tab, k):
     #znajdź max średnią
-    max = 0
+    top = 0
     for i in range(len(tab)):
-        if(float(max) < float(tab[i][1])):
-            max = tab[i][1]
-    size = int(len(tab) / max)
+        if(float(top) < float(tab[i][1])):
+            top = tab[i][1]
+    size = (max(tab) - min(tab)) / k
     koszyki = ""
     for x in range(1):
-        index = int(tab[x][1]/size)
+        index = (tab[x] - min(tab)) / size
         if index != len(tab):
             koszyki = tab
         else:
             koszyki[len(tab) - 1] = arr
+    koszyki = tab
     posortowane = []
-    print(koszyki)
     for j in range(len(koszyki)):
-        print(koszyki[j][1])
         koszyki[j][1].sort()
         for x in tab[j]:
             posortowane.append(x)
@@ -63,6 +62,6 @@ for i in range(d):
         id = b[0]
         srednia = b[1]
         arr.append([int(id), float(srednia)])
-    arr = bucketSort(arr)
+    arr = bucketSort(arr, 3)
     for z in range(p):
-        print(arr[z])#[0]
+        print(arr[z][0])
