@@ -1,48 +1,3 @@
-# def sort(ids, avgs):
-#     a = []
-#     for i in range(3):
-#         ks = []
-#         a.append(ks)
-#     for i in range(len(avgs)):
-#         if arr[i] == max(arr):
-#             a[k-1].append(max(arr))
-#         else:
-#             b = (arr[i] - min(arr)) // (max(arr)/k)
-#             a[int(b)].append(arr[i])
-#     tab = []
-#     for i in range(k):
-#         a[i].sort()
-#         for n in range(len(a[i])):
-#             tab.append(a[i][n])
-
-def bucketSort(tab):
-    #znajdź max średnią
-    max = 0
-    for i in range(len(tab)):
-        if(float(max) < float(tab[i][1])):
-            max = tab[i][1]
-    size = int(len(tab) / max)
-    tablica = []
-    for i in range(3):
-        koszyki = []
-        tablica.append(koszyki)
-    for x in range(len(tab)):
-        index = int(tab[x][1]/size)
-        if index != len(tab):
-            koszyki.append(tab)
-        else:
-            koszyki[len(tab) - 1].append(arr)
-    posortowane = []
-    for j in range(len(koszyki)):
-        koszyki[j][1].sort()
-        for x in koszyki[j]:
-            posortowane.append(x)
-    return posortowane
-
-    
-    
-
-
     #1. p = weź liczbę osób na dzień
     # 2. d = weź liczbę dni
 
@@ -71,6 +26,34 @@ def bucketSort(tab):
     # złączyć koszyki w jedną listę
 
     # wydrukować dla każdego dnia p uczniów
+
+
+def bucketSort(tab):
+    #znajdź max średnią
+    max = 0
+    for i in range(len(tab)):
+        if(float(max) < float(tab[i][1])):
+            max = tab[i][1]
+    size = int(len(tab) / max)
+    tablica = []
+    for i in range(3):
+        koszyki = []
+        tablica.append(koszyki)
+    for x in range(len(tab)):
+        index = int(tab[x][1]/size)
+        if index != len(tab):
+            koszyki.append(tab)
+        else:
+            koszyki[len(tab) - 1].append(arr)
+    posortowane = []
+    for j in range(len(tab)):
+        #print(tab)
+        #print(tab[j])
+        #print(tab[j][1])
+        tab[j][1].sort()
+        for x in tab[j]:
+            posortowane.append(x)
+    return posortowane
 
 a = input().split()
 p = int(a[0])
