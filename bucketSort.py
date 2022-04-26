@@ -19,7 +19,7 @@ def bucketSort(tab):
     #znajdź max średnią
     max = 0
     for i in range(len(tab)):
-        if(str(max) < float(tab[i][1])):
+        if(float(max) < float(tab[i][1])):
             max = tab[i][1]
     size = int(len(tab) / max)
     tablica = []
@@ -27,14 +27,17 @@ def bucketSort(tab):
         koszyki = []
         tablica.append(koszyki)
     for x in range(len(tab)):
-        index = int(tab[1]/size)
+        index = int(tab[x][1]/size)
         if index != len(tab):
-            koszyki[index].append(tab)
+            koszyki.append(tab)
         else:
-            koszyki[len(tab) - 1].append(c)
+            koszyki[len(tab) - 1].append(arr)
+    posortowane = []
     for j in range(len(koszyki)):
-        koszyki.sort()
-    tab.append(koszyki)
+        koszyki[j][1].sort()
+        for x in koszyki[j]:
+            posortowane.append(x)
+    return posortowane
 
     
     
@@ -74,14 +77,13 @@ p = int(a[0])
 d = int(a[1])
 posort = []
 for i in range(d):
-    tab = []
+    arr = []
     n = int(input())
     for j in range(n):
-        b = input()
-        tab.append(b)
-    c = []
-    for x in range(len(tab)):
-        c.append(tab[x].split())
-    bucketSort(c)
+        b = input().split()
+        id = b[0]
+        srednia = b[1]
+        arr.append([int(id), float(srednia)])
+    arr = bucketSort(arr)
     for z in range(p):
-        print(c[z])
+        print(arr[z])
