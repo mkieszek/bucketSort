@@ -41,8 +41,9 @@ def bucketSort(tab):
         if index != len(tab):
             koszyki = tab
         else:
-            koszyki[len(tab) - 1].append(arr)
+            koszyki[len(tab) - 1] = arr
     posortowane = []
+    print(koszyki)
     for j in range(len(koszyki)):
         print(koszyki[j][1])
         koszyki[j][1].sort()
