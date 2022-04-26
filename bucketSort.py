@@ -35,22 +35,17 @@ def bucketSort(tab):
         if(float(max) < float(tab[i][1])):
             max = tab[i][1]
     size = int(len(tab) / max)
-    tablica = []
-    for i in range(3):
-        koszyki = []
-        tablica.append(koszyki)
-    for x in range(len(tab)):
+    koszyki = ""
+    for x in range(1):
         index = int(tab[x][1]/size)
         if index != len(tab):
-            koszyki.append(tab)
+            koszyki = tab
         else:
             koszyki[len(tab) - 1].append(arr)
     posortowane = []
-    for j in range(len(tab)):
-        #print(tab)
-        #print(tab[j])
-        #print(tab[j][1])
-        tab[j][1].sort()
+    for j in range(len(koszyki)):
+        print(koszyki[j][1])
+        koszyki[j][1].sort()
         for x in tab[j]:
             posortowane.append(x)
     return posortowane
@@ -69,4 +64,4 @@ for i in range(d):
         arr.append([int(id), float(srednia)])
     arr = bucketSort(arr)
     for z in range(p):
-        print(arr[z])
+        print(arr[z])#[0]
